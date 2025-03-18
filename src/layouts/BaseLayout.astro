@@ -1,0 +1,70 @@
+---
+import { SITE_NAME } from "@/constants";
+import { ClientRouter } from "astro:transitions";
+
+// Styles
+import "@/styles/global.css";
+
+// Fonts
+import { css as lxgw } from "@/assets/fonts/LXGWBrightGB-Regular.ttf";
+import { css as klee } from "@/assets/fonts/KleeOne-SemiBold.ttf";
+
+// Components
+import AppHeader from "@/components/AppHeader.astro";
+---
+
+<!doctype html>
+<html lang="zh">
+  <head>
+    <!-- Title slot -->
+    <slot name="head-title" />
+
+    <!-- Metadata -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <slot name="head-metas" />
+
+    <!-- Links -->
+    <link rel="canonical" href={Astro.url} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="alternate"
+      href="/rss.xml"
+      type="application/rss+xml"
+      title={SITE_NAME}
+    />
+    <slot name="head-links" />
+
+    <!-- Styles -->
+    <slot name="head-styles" />
+
+    <!-- Anti-proxy -->
+    <script
+      is:inline
+      define:vars={{
+        _: [Astro.site!.hostname, "localhost", "127.0.0.1"].map(
+          (s: string): string => Buffer.from(s).toString("base64")
+        )
+      }}
+    >
+      if (!_.includes(window.btoa(location.hostname))) {
+        location.href = window.atob(_[0]);
+      }
+    </script>
+
+    <!-- Script slot -->
+    <slot name="head-scripts" />
+
+    <!-- View transition -->
+    <ClientRouter />
+  </head>
+  <body style={`--zh-font: ${lxgw.family}; --jp-font: ${klee.family}`}>
+    <div class="container">
+      <AppHeader />
+      <slot />
+    </div>
+  </body>
+</html>
