@@ -14,6 +14,7 @@
     "astro": "^5.5.2",
     "astro-icon": "^1.1.5",
     "chalk": "^5.4.1",
+    "dayjs": "^1.11.13",
     "html-minifier-terser": "^7.2.0",
     "tailwindcss": "^4.0.14",
     "vite-plugin-font": "^5.1.1"

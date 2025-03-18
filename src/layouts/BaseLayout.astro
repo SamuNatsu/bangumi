@@ -11,6 +11,7 @@ import { css as klee } from "@/assets/fonts/KleeOne-SemiBold.ttf";
 
 // Components
 import SiteAnnouncement from "@/components/SiteAnnouncement.astro";
+import SiteFooter from "@/components/SiteFooter.astro";
 import SiteHeader from "@/components/SiteHeader.astro";
 ---
 
@@ -56,6 +57,21 @@ import SiteHeader from "@/components/SiteHeader.astro";
       }
     </script>
 
+    <!-- Vercount -->
+    <script
+      is:inline
+      src="https://events.vercount.one/js"
+      data-astro-rerun
+      defer></script>
+
+    <!-- Umami statistic -->
+    <script
+      is:inline
+      src="https://cloud.umami.is/script.js"
+      data-website-id="2ac88f07-9475-46e2-b56d-269d0aedb342"
+      data-astro-rerun
+      defer></script>
+
     <!-- Script slot -->
     <slot name="head-scripts" />
 
@@ -67,6 +83,7 @@ import SiteHeader from "@/components/SiteHeader.astro";
       <SiteHeader />
       <SiteAnnouncement />
       <slot />
+      <SiteFooter />
     </div>
   </body>
 </html>
