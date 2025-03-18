@@ -29,7 +29,7 @@ mask_str() {
 
 # (charset, len, prefix?) -> str
 gen_rnd_str() {
-  local RND=$(LC_ALL=C tr -dc "$1" < /dev/urandom | head -c "$2")
+  local RND=$(head -c "$(( $2 * 1024 ))" /dev/urandom | LC_ALL=C tr -dc "$1" | head -c "$2")
 
   if [ -z "$3" ]; then
     echo "$RND"
@@ -74,6 +74,7 @@ get_access_token() {
   local MASK_TOKEN=$(mask_str "$ACCESS_TOKEN" 5)
   echo "access token: $MASK_TOKEN"
   echo "token name: $TOKEN_NAME"
+  echo "nonce: $CODE"
 }
 
 # () -> ()
@@ -132,7 +133,7 @@ main() {
   fi
 
   get_access_token $1 $2
-  refresh "https://bangumi.rainiar.top/*.html"
+  refresh "https://bangumi.rainiar.top/*/"
   del_access_token
 }
 
