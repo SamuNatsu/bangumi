@@ -1,6 +1,13 @@
 name: Deploy to Server
 
-on: [push, workflow_dispatch]
+on:
+  push:
+    paths-ignore:
+      - .vscode/**
+      - .gitignore
+      - .prettierrc.json
+      - README.md
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
