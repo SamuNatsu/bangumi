@@ -133,7 +133,12 @@ main() {
   fi
 
   get_access_token $1 $2
-  refresh "https://bangumi.rainiar.top/*/"
+  refresh \
+    "https://bangumi.rainiar.top" \
+    "https://bangumi.rainiar.top/about" \
+    "https://bangumi.rainiar.top/archives" \
+    "https://bangumi.rainiar.top/categories/*" \
+    "https://bangumi.rainiar.top/posts/*"
   del_access_token
 }
 
