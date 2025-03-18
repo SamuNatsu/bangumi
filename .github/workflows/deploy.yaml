@@ -34,7 +34,10 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
-      - name: Rsync Deployment
+      - name: Rsync deployment
         run: |
           rsync -cmrtvzP --delete -e "ssh -i ~/.ssh/id_ed25519" \
-          ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }}:${{ secrets.TARGET_DIR }}
+            ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }}:${{ secrets.TARGET_DIR }}
+
+      - name: Refresh CDN
+        run: scripts/refresh-cdn.sh ${{ secrets.CDN_USER }} ${{ secrets.CDN_PASSWD }}
