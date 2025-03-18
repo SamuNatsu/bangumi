@@ -29,7 +29,7 @@ mask_str() {
 
 # (charset, len, prefix?) -> str
 gen_rnd_str() {
-  local RND=$(head -c "$(( $2 * 1024 ))" /dev/urandom | LC_ALL=C tr -dc "$1" | head -c "$2")
+  local RND=local RND=$(LC_ALL=C tr -dc "$1" </dev/urandom 2>/dev/null | head -c "$2")
 
   if [ -z "$3" ]; then
     echo "$RND"
