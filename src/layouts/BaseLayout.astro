@@ -10,7 +10,8 @@ import { css as lxgw } from "@/assets/fonts/LXGWBrightGB-Regular.ttf";
 import { css as klee } from "@/assets/fonts/KleeOne-SemiBold.ttf";
 
 // Components
-import AppHeader from "@/components/AppHeader.astro";
+import SiteAnnouncement from "@/components/SiteAnnouncement.astro";
+import SiteHeader from "@/components/SiteHeader.astro";
 ---
 
 <!doctype html>
@@ -62,8 +63,9 @@ import AppHeader from "@/components/AppHeader.astro";
     <ClientRouter />
   </head>
   <body style={`--zh-font: ${lxgw.family}; --jp-font: ${klee.family}`}>
-    <div class="container">
-      <AppHeader />
+    <div class="frame">
+      <SiteHeader />
+      <SiteAnnouncement />
       <slot />
     </div>
   </body>

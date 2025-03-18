@@ -1,0 +1,35 @@
+---
+import { SITE_NAME } from "@/constants";
+
+// Components
+import { Icon } from "astro-icon/components";
+---
+
+<header class="border-b-2 border-neutral-300 px-4 dark:border-neutral-600">
+  <h1 class="font-bold mb-2 mt-4 text-4xl">{SITE_NAME}</h1>
+  <nav class="flex gap-4">
+    <a href="/">主页</a>
+    <a href="/about">关于</a>
+    <a href="/archives">归档</a>
+    <a href="https://blog.rainiar.top" target="_blank" rel="noopener noreferer"
+      >博客<Icon name="mdi:arrow-top-right" /></a
+    >
+    <a
+      href="https://www.travellings.cn/plain.html"
+      target="_blank"
+      rel="noopener noreferer">开往<Icon name="mdi:arrow-top-right" /></a
+    >
+  </nav>
+</header>
+
+<style>
+  @import "tailwindcss";
+
+  nav a {
+    @apply flex hover:text-red-500;
+
+    [data-icon] {
+      @apply text-xs;
+    }
+  }
+</style>

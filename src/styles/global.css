@@ -15,8 +15,8 @@ body {
 }
 
 /* Container */
-.container {
-  @apply bg-white border border-neutral-100 shadow;
-  @apply mx-auto my-12 w-full lg:max-w-5xl;
-  @apply dark:bg-neutral-700 dark:border-neutral-600 dark:shadow-neutral-600;
+.frame {
+  @apply bg-white/50 border border-neutral-100 shadow;
+  @apply mx-auto my-4 w-full lg:max-w-5xl lg:my-12;
+  @apply dark:bg-neutral-700/70 dark:border-neutral-600 dark:shadow-neutral-600;
 }
