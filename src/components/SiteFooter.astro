@@ -16,32 +16,41 @@ const now = dayjs().tz("Asia/Shanghai");
 <footer
   is="x-footer"
   class="border-t-2 border-neutral-300 p-4 text-sm dark:border-neutral-600">
-  <p>
-    &copy; {new Date().getFullYear()}
-    {SITE_NAME}<span class="spliter"></span><span id="vercount_value_site_pv"
-      >…</span
-    ><span class="spliter"></span><span id="vercount_value_site_uv">…</span>
-  </p>
-  <p>
-    使用 <a href="https://astro.build/" target="_blank" rel="noopener noreferer"
-      >Astro</a
-    > 强力驱动<span class="spliter"></span>构建于<time datetime={now.format()}
-      >{now.locale("zh").format("LL")}</time
-    ><span class="spliter"></span><a
-      href="https://github.com/SamuNatsu/bangumi"
-      target="_blank"
-      rel="noopener noreferer">GitHub</a
-    >
-  </p>
-  <p>
-    本站所有内容除另有声明外，均在 <a
-      href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans"
-      target="_blank"
-      rel="noopener noreferer"
-      >知识共享 署名-非商业性使用-相同方式共享 4.0 国际（CC BY-NC-SA
-      4.0）许可协议</a
-    > 下提供
-  </p>
+  <section>
+    <p>&copy; {new Date().getFullYear()} {SITE_NAME}</p>
+    <p class="lg-show"><span id="vercount_value_site_pv">…</span></p>
+    <p class="lg-show"><span id="vercount_value_site_uv">…</span></p>
+  </section>
+  <section>
+    <p>
+      使用 <a
+        href="https://astro.build/"
+        target="_blank"
+        rel="noopener noreferer">Astro</a
+      > 强力驱动
+    </p>
+    <p>
+      构建于<time datetime={now.format()}>{now.locale("zh").format("LL")}</time>
+    </p>
+    <p class="lg-show">
+      <a
+        href="https://github.com/SamuNatsu/bangumi"
+        target="_blank"
+        rel="noopener noreferer">网站源代码</a
+      >
+    </p>
+  </section>
+  <section>
+    <p>
+      本站所有内容除另有声明外，均在 <a
+        href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans"
+        target="_blank"
+        rel="noopener noreferer"
+        >知识共享 署名-非商业性使用-相同方式共享 4.0 国际（CC BY-NC-SA
+        4.0）许可协议</a
+      > 下提供
+    </p>
+  </section>
 </footer>
 
 <style>
@@ -51,8 +60,12 @@ const now = dayjs().tz("Asia/Shanghai");
     @apply text-blue-500 hover:text-red-500;
   }
 
-  span.spliter {
-    @apply mx-2;
+  p.lg-show {
+    @apply hidden lg:block;
+  }
+
+  section {
+    @apply flex flex-wrap gap-4;
   }
 </style>
 
