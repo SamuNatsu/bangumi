@@ -16,7 +16,7 @@ body {
 
 /* Container */
 .frame {
-  @apply bg-white/50 border border-neutral-100 shadow;
-  @apply mx-auto my-4 w-full lg:max-w-5xl lg:my-12;
-  @apply dark:bg-neutral-700/70 dark:border-neutral-600 dark:shadow-neutral-600;
+  @apply border border-neutral-100 bg-white/50 shadow;
+  @apply mx-auto my-4 w-full lg:my-12 lg:max-w-5xl;
+  @apply dark:border-neutral-600 dark:bg-neutral-700/70 dark:shadow-neutral-600;
 }

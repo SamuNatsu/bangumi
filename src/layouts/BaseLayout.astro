@@ -48,8 +48,8 @@ import SiteHeader from "@/components/SiteHeader.astro";
       is:inline
       define:vars={{
         _: [Astro.site!.hostname, "localhost", "127.0.0.1"].map(
-          (s: string): string => Buffer.from(s).toString("base64")
-        )
+          (s: string): string => Buffer.from(s).toString("base64"),
+        ),
       }}
     >
       if (!_.includes(window.btoa(location.hostname))) {

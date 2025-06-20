@@ -13,6 +13,6 @@ export default defineConfig({
   integrations: [icon(), htmlMinify()],
   site: "https://bangumi.rainiar.top",
   vite: {
-    plugins: [font.vite(), tailwindcss()]
-  }
+    plugins: [font.vite(), tailwindcss()],
+  },
 });

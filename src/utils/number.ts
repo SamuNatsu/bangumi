@@ -18,7 +18,7 @@ export const splitNumber = (x: number): string => {
       c
         .slice(i, i + 3)
         .reverse()
-        .join("")
+        .join(""),
     );
   }
   return r.reverse().join();

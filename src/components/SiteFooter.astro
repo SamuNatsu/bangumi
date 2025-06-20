@@ -75,7 +75,7 @@ const now = dayjs().tz("Asia/Shanghai");
   class XFooter extends HTMLElement {
     public connectedCallback() {
       const pvEl = this.querySelector<HTMLSpanElement>(
-        "#vercount_value_site_pv"
+        "#vercount_value_site_pv",
       )!;
       const pvOb = new MutationObserver(() => {
         const count = parseInt(pvEl.innerText);
@@ -87,11 +87,11 @@ const now = dayjs().tz("Asia/Shanghai");
       pvOb.observe(pvEl, {
         subtree: true,
         childList: true,
-        characterData: true
+        characterData: true,
       });
 
       const uvEl = this.querySelector<HTMLSpanElement>(
-        "#vercount_value_site_uv"
+        "#vercount_value_site_uv",
       )!;
       const uvOb = new MutationObserver(() => {
         const count = parseInt(uvEl.innerText);
@@ -103,7 +103,7 @@ const now = dayjs().tz("Asia/Shanghai");
       uvOb.observe(uvEl, {
         subtree: true,
         childList: true,
-        characterData: true
+        characterData: true,
       });
     }
   }
